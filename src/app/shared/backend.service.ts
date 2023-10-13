@@ -32,10 +32,4 @@ export class BackendService {
         this.getChildren(page);
       })
     }
-
-    public async deleteChildData(childId: string, page: number) {
-      this.http.delete(`http://localhost:5000/childs/${childId}`).subscribe(_=> {
-        this.getChildren(page);
-      })
-    }
   }

@@ -37,10 +37,6 @@ export class DataComponent implements OnInit {
   public returnAllPages() {
     return Math.ceil(this.storeService.childrenTotalCount / CHILDREN_PER_PAGE)
   }
-
-  public cancelRegistration(childId: string) {
-    this.backendService.deleteChildData(childId, this.currentPage);
-  }
 }
 
 
