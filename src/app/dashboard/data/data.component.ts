@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
-import { SENSORS_PER_PAGE } from 'src/app/shared/constants';
+import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
 import { StoreService } from 'src/app/shared/store.service';
 
 @Component({
@@ -30,12 +30,16 @@ export class DataComponent implements OnInit {
   }
 
   async selectPage(i: any) {
-    this.currentPage = i + 1;
+    this.currentPage = i;
     await this.backendService.getChildren(this.currentPage);
   }
 
   public returnAllPages() {
-    return Math.ceil(this.storeService.sensorenDatenTotalCount / SENSORS_PER_PAGE)
+    return Math.ceil(this.storeService.childrenTotalCount / CHILDREN_PER_PAGE)
+  }
+
+  public cancelRegistration(childId: string) {
+    this.backendService.deleteChildData(childId, this.currentPage);
   }
 }
 

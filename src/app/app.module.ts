@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataComponent } from './dashboard/data/data.component';
 import { AddDataComponent } from './dashboard/add-data/add-data.component';
 import { HeaderComponent } from './header/header.component';
+import { PaginationPipe } from './dashboard/data/pagination.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from './header/header.component';
     DashboardComponent,
     AddDataComponent,
     DataComponent,
-    HeaderComponent
+    HeaderComponent,
+    PaginationPipe
   ],
   imports: [
     BrowserModule,

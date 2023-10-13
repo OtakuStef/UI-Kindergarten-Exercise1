@@ -5,6 +5,7 @@
         <th>Adresse</th>
         <th>Alter</th>
         <th>Geburtsdatum</th>
+        <th></th>
       </tr>
     <tr *ngFor="let child of storeService.children">
         <td>{{child.name}}</td>
@@ -12,7 +13,8 @@
         <td>{{child.kindergarden.address}}</td>
         <td>{{getAge(child.birthDate)}}</td>
         <td>{{child.birthDate | date:'longDate'}}</td>
+        <button (click)="cancelRegistration(child.id)">Kind abmelden</button>
     </tr>
 </table>
 
-<button [ngClass]="(i + 1) == currentPage ? 'active' : 'inactive'" type="button" class="pageButton" (click)="selectPage(i)" *ngFor="let page of [].constructor(returnAllPages()); let i = index">{{i + 1}}</button>
+<button [ngClass]="page == currentPage ? 'active' : ''" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages() | pagination ">{{page}}</button>

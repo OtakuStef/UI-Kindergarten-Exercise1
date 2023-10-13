@@ -11,5 +11,5 @@ export class StoreService {
 
   public kindergardens: Kindergarden[] = [];
   public children: ChildResponse[] = []
-  public sensorenDatenTotalCount: number = 0;
+  public childrenTotalCount: number = 0;
 }
