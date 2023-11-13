@@ -10,6 +10,8 @@ import { CHILDREN_PER_PAGE } from './constants';
 })
 export class BackendService {
 
+  private filterQueryParam : string = "";
+
   constructor(private http: HttpClient, private storeService: StoreService) { }
 
   public getKindergardens() {
@@ -19,7 +21,7 @@ export class BackendService {
   }
 
   public getChildren(page: number) {
-    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}`, { observe: 'response' }).subscribe(data => {
+    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}&${this.filterQueryParam}`, { observe: 'response' }).subscribe(data => {
       console.log(data.headers.get('X-Total-Count'));
       this.storeService.children = data.body!;
       this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
@@ -31,5 +33,16 @@ export class BackendService {
       this.http.post('http://localhost:5000/childs', child).subscribe(_ => {
         this.getChildren(page);
       })
+    }
+
+    public deleteChildren(childId : string) {
+      this.http.delete('http://localhost:5000/childs/' + childId).subscribe(_ => {
+        location.reload()
+      })
+    }
+
+    public filterChildren(filterKey : string, filterValue : string){
+      this.filterQueryParam = filterKey + "=" + filterValue
+
     }
   }

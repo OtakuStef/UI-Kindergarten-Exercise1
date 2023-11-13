@@ -1,3 +1,12 @@
+<div id="filterChildren">
+    <input type="text">
+    <select id="filterKey">
+        <option value="">Kindergarten</option>
+        <option value="">Name</option>
+    </select>
+    <button (click)="filterChildren()">Filter</button>
+</div>
+
 <table>
     <tr>
         <th>Name</th>
@@ -13,6 +22,9 @@
         <td>{{child.kindergarden.address}}</td>
         <td>{{getAge(child.birthDate)}}</td>
         <td>{{child.birthDate | date:'longDate'}}</td>
+        <td>
+            <button (click)="deleteChild(child.id)">X</button>
+        </td>
     </tr>
 </table>
 

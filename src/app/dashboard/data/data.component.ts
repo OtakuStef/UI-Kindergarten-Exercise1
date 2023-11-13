@@ -29,6 +29,15 @@ export class DataComponent implements OnInit {
     return age;
   }
 
+  deleteChild(childId: string){
+    console.log("Loeschen");
+    this.backendService.deleteChildren(childId);
+  }
+
+  filterChildren(){
+    
+  }
+
   async selectPage(i: any) {
     this.currentPage = i;
     await this.backendService.getChildren(this.currentPage);
@@ -37,6 +46,8 @@ export class DataComponent implements OnInit {
   public returnAllPages() {
     return Math.ceil(this.storeService.childrenTotalCount / CHILDREN_PER_PAGE)
   }
+
+
 }
 
 
