@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
 import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
+import { ChildResponse } from 'src/app/shared/interfaces/Child';
 import { StoreService } from 'src/app/shared/store.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-data',
@@ -14,8 +16,13 @@ export class DataComponent implements OnInit {
   public currentPage: number = 1;
   public page: number = 0;
 
-  ngOnInit(): void {
+  //Table
+  public children : MatTableDataSource<ChildResponse> = new MatTableDataSource();
+  displayedColumns: string[] = ['name', 'kindergarden', 'address', 'age', 'birthDate', 'deleteChild'];
+
+  ngOnInit() {
     this.backendService.getChildren(this.currentPage);
+    this.changeDataSource();
   }
 
   getAge(birthDate: string) {
@@ -32,6 +39,7 @@ export class DataComponent implements OnInit {
   deleteChild(childId: string){
     console.log("Loeschen");
     this.backendService.deleteChildren(childId);
+    this.changeDataSource();
   }
 
   filterChildren(){
@@ -41,10 +49,17 @@ export class DataComponent implements OnInit {
   async selectPage(i: any) {
     this.currentPage = i;
     await this.backendService.getChildren(this.currentPage);
+    this.changeDataSource();
   }
 
   public returnAllPages() {
     return Math.ceil(this.storeService.childrenTotalCount / CHILDREN_PER_PAGE)
+  }
+
+  private changeDataSource(){
+    const children : ChildResponse[] = this.storeService.children;
+    console.log(children);
+    this.children = new MatTableDataSource(children);
   }
 
 

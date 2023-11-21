@@ -85,10 +85,40 @@
       "id": "_XOumOV"
     },
     {
-      "name": "Tobias Maier",
-      "kindergardenId": 3,
-      "birthDate": "2023-06-27",
-      "id": "9FmbCph"
+      "name": "Test Max",
+      "kindergardenId": 4,
+      "birthDate": "2023-10-31T23:00:00.000Z",
+      "id": "KoChNgh"
+    },
+    {
+      "name": "Test Max",
+      "kindergardenId": 4,
+      "birthDate": "2023-10-31T23:00:00.000Z",
+      "id": "wmWJ6v-"
+    },
+    {
+      "name": "Stefan",
+      "kindergardenId": 2,
+      "birthDate": "2018-08-27T22:00:00.000Z",
+      "id": "wjHSecb"
+    },
+    {
+      "name": "Test",
+      "kindergardenId": 2,
+      "birthDate": "2023-11-01T23:00:00.000Z",
+      "id": "p4UqotP"
+    },
+    {
+      "name": "Test 2",
+      "kindergardenId": 2,
+      "birthDate": "2023-11-15T23:00:00.000Z",
+      "id": "IvJtCxV"
+    },
+    {
+      "name": "Stefan",
+      "kindergardenId": 5,
+      "birthDate": "2016-02-10T23:00:00.000Z",
+      "id": "F0qrVaj"
     }
   ],
   "kindergardens": [

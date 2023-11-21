@@ -1,11 +1,29 @@
-<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
-    <h2>Ihr Kind anmelden!</h2>
-    <input placeholder="Name" type="input" formControlName="name"><br />
-    <input placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br />
-    <select formControlName="kindergardenId">
-        <option value="" disabled>Bitte auswählen</option>
-        <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
-            {{kindergarden.name}}, {{kindergarden.address}}</option>
-    </select>
-    <button type="submit">Erfassen</button>
-</form>
+<div class="container">
+    <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()" class="text-center flex-column ">
+        <h2>Ihr Kind anmelden!</h2>
+        <div class="flex-row">
+            <mat-form-field class="m-2">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class="m-2">
+                <mat-label>Geburtstatum</mat-label>
+                <input matInput formControlName="birthDate" [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="m-2">
+                <mat-label>Kindergarten</mat-label>
+                <mat-select formControlName="kindergardenId">
+                    <mat-option [value]="" disabled>Bitte auswählen</mat-option>
+                    <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+                        {{kindergarden.name}}, {{kindergarden.address}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" class="m-2">Anmelden</button>
+        </div>
+    </form>
+</div>
