@@ -11,16 +11,24 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class AddDataComponent implements OnInit{
 
+  public minDate:Date;
+  public maxDate:Date;
+
   constructor(
     private formbuilder: FormBuilder, 
     public storeService: StoreService, 
     public backendService: BackendService, 
     private snackBar: MatSnackBar
-  ) {}
+  ) {
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 5, 0, 1);
+    this.maxDate = new Date(currentYear - 1, 0, 1);
+  }
 
   public addChildForm: any;
   public currentPage = 1;
 
+ 
   ngOnInit(): void {
     this.addChildForm = this.formbuilder.group({
       name: ['', [Validators.required]],

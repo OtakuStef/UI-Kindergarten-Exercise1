@@ -5,13 +5,15 @@
             <mat-form-field class="m-2">
                 <mat-label>Name</mat-label>
                 <input matInput formControlName="name">
+                <mat-error>Bitte den Namen des Kindes eingeben.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="m-2">
                 <mat-label>Geburtstatum</mat-label>
-                <input matInput formControlName="birthDate" [matDatepicker]="picker">
+                <input matInput readonly [min]="minDate" [max]="maxDate" formControlName="birthDate" [matDatepicker]="picker">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Bitte ein Datum auswählen.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="m-2">
@@ -21,6 +23,7 @@
                     <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
                         {{kindergarden.name}}, {{kindergarden.address}}</mat-option>
                 </mat-select>
+                <mat-error>Bitte einen Kindergarten auswählen.</mat-error>
             </mat-form-field>
 
             <button mat-raised-button type="submit" class="m-2">Anmelden</button>
