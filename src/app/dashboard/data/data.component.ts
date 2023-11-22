@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
-import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
-import { ChildResponse } from 'src/app/shared/interfaces/Child';
 import { StoreService } from 'src/app/shared/store.service';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource, MatTable} from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-data',
@@ -17,12 +17,43 @@ export class DataComponent implements OnInit {
   public page: number = 0;
 
   //Table
-  public children : MatTableDataSource<ChildResponse> = new MatTableDataSource();
-  displayedColumns: string[] = ['name', 'kindergarden', 'address', 'age', 'birthDate', 'deleteChild'];
+  @ViewChild('childTable', {static: true}) table!: MatTable<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  public children : MatTableDataSource<any> = new MatTableDataSource();
+  public displayedColumns: string[] = ['name', 'kindergarden', 'address', 'age', 'birthDate', 'deleteChild'];
+  public pageSize = 5;
+  public length = 0;
+  private startPage = 1;
+
 
   ngOnInit() {
-    this.backendService.getChildren(this.currentPage);
-    this.changeDataSource();
+    this.getChildrenLength();
+    this.loadInitialData(this.startPage);
+  }
+
+  getChildrenLength(){
+    this.backendService.getAllChildren().subscribe((res:any) => {
+      console.log('Children Count: ' + res.length);
+      this.length = res.length;
+    }, (error) => {
+      this.errorHandler(error);
+    })
+  }
+
+  loadInitialData(pageIndex:number){
+    this.backendService.getChildrenByPageIndexPageSize(pageIndex, this.pageSize).subscribe((res:any)=>{
+      this.children = new MatTableDataSource(res);
+    }, (error) => {
+      this.errorHandler(error);
+    })
+  }
+
+  pageNavigate(page:PageEvent){
+    this.loadInitialData(page.pageIndex + this.startPage);
+  }
+
+  errorHandler(error:any){
+    console.log('Error while fetching data: ' + error);
   }
 
   getAge(birthDate: string) {
@@ -37,31 +68,8 @@ export class DataComponent implements OnInit {
   }
 
   deleteChild(childId: string){
-    console.log("Loeschen");
     this.backendService.deleteChildren(childId);
-    this.changeDataSource();
   }
-
-  filterChildren(){
-    
-  }
-
-  async selectPage(i: any) {
-    this.currentPage = i;
-    await this.backendService.getChildren(this.currentPage);
-    this.changeDataSource();
-  }
-
-  public returnAllPages() {
-    return Math.ceil(this.storeService.childrenTotalCount / CHILDREN_PER_PAGE)
-  }
-
-  private changeDataSource(){
-    const children : ChildResponse[] = this.storeService.children;
-    console.log(children);
-    this.children = new MatTableDataSource(children);
-  }
-
 
 }
 

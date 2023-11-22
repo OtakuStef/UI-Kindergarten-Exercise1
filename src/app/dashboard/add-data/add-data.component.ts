@@ -31,7 +31,7 @@ export class AddDataComponent implements OnInit{
 
   onSubmit() {
     if(this.addChildForm.valid) {
-      this.backendService.addChildData(this.addChildForm.value, this.currentPage);
+      this.backendService.addChildData(this.addChildForm.value);
       const snackbarMessage : string = this.addChildForm.value.name + " erfolgreich angemeldet!"
       this.addChildForm.reset();
       this.snackBar.open(snackbarMessage, "Schließen");

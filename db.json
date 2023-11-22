@@ -119,6 +119,12 @@
       "kindergardenId": 5,
       "birthDate": "2016-02-10T23:00:00.000Z",
       "id": "F0qrVaj"
+    },
+    {
+      "name": "Stefan2",
+      "kindergardenId": 1,
+      "birthDate": "2023-11-12T23:00:00.000Z",
+      "id": "MCAoT4z"
     }
   ],
   "kindergardens": [
