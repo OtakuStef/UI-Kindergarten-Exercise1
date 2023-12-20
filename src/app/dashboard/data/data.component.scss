@@ -4,12 +4,13 @@ button.active {
 
 .relative-loading-container{
     position: relative;
+    display: flex;
 }
 
 .spinner-container{
     position: absolute;
     left: 50%;
-    padding-top: 15vh;
+    top: 15vh;
     transform: translate(-50%, 0%);
 }
 
