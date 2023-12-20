@@ -125,6 +125,30 @@
       "kindergardenId": 1,
       "birthDate": "2023-11-12T23:00:00.000Z",
       "id": "MCAoT4z"
+    },
+    {
+      "name": "test",
+      "kindergardenId": 2,
+      "birthDate": "2021-12-13T23:00:00.000Z",
+      "id": "CJjRs9y"
+    },
+    {
+      "name": "Stefan",
+      "kindergardenId": 2,
+      "birthDate": "2021-12-31T23:00:00.000Z",
+      "id": "NG9HYs7"
+    },
+    {
+      "name": "Test",
+      "kindergardenId": 2,
+      "birthDate": "2021-12-04T23:00:00.000Z",
+      "id": "xscN4AS"
+    },
+    {
+      "name": "Stefan 2",
+      "kindergardenId": 4,
+      "birthDate": "2021-12-19T23:00:00.000Z",
+      "id": "ELl3aJK"
     }
   ],
   "kindergardens": [

@@ -1,32 +1,42 @@
-<div class="container">
-    <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()" class="text-center flex-column ">
+<div class="container pb-5">
+    <form [formGroup]="addChildForm" class="text-center flex-row ">
         <h2>Ihr Kind anmelden!</h2>
-        <div class="flex-row">
-            <mat-form-field class="m-2">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
-                <mat-error>Bitte den Namen des Kindes eingeben.</mat-error>
-            </mat-form-field>
+        <div class="col-4 mx-auto">
+            <div class="row m-2">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error>Bitte den Namen des Kindes eingeben.</mat-error>
+                </mat-form-field>
+            </div>
 
-            <mat-form-field class="m-2">
-                <mat-label>Geburtstatum</mat-label>
-                <input matInput readonly [min]="minDate" [max]="maxDate" formControlName="birthDate" [matDatepicker]="picker">
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-                <mat-error>Bitte ein Datum auswählen.</mat-error>
-            </mat-form-field>
+            <div class="row m-2">
+                <mat-form-field>
+                    <mat-label>Geburtstatum</mat-label>
+                    <input matInput readonly [min]="minDate" [max]="maxDate" formControlName="birthDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error>Bitte ein Datum auswählen.</mat-error>
+                </mat-form-field>
+            </div>
 
-            <mat-form-field class="m-2">
-                <mat-label>Kindergarten</mat-label>
-                <mat-select formControlName="kindergardenId">
-                    <mat-option [value]="" disabled>Bitte auswählen</mat-option>
-                    <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
-                        {{kindergarden.name}}, {{kindergarden.address}}</mat-option>
-                </mat-select>
-                <mat-error>Bitte einen Kindergarten auswählen.</mat-error>
-            </mat-form-field>
+            <div class="row m-2">
+                <mat-form-field>
+                    <mat-label>Kindergarten</mat-label>
+                    <mat-select formControlName="kindergardenId">
+                        <mat-option [value]="" disabled>Bitte auswählen</mat-option>
+                        <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+                            {{kindergarden.name}}, {{kindergarden.address}}</mat-option>
+                    </mat-select>
+                    <mat-error>Bitte einen Kindergarten auswählen.</mat-error>
+                </mat-form-field>
+            </div>
 
-            <button mat-raised-button type="submit" class="m-2">Anmelden</button>
+            <div class="row m-2 justify-content-center">
+                <button mat-raised-button type="reset" class="acceptButton" color="primary" (click)="onSubmit()">Anmelden</button>
+            </div>
+
+
         </div>
     </form>
 </div>
