@@ -10,7 +10,7 @@ button.active {
 .spinner-container{
     position: absolute;
     left: 50%;
-    top: 15vh;
+    top: 20vh;
     transform: translate(-50%, 0%);
 }
 
@@ -19,7 +19,7 @@ button.active {
 }
 
 .mat-column-kindergarden {
-    width: 45%;
+    width: 33%;
 }
 
 .mat-column-address {
@@ -27,9 +27,17 @@ button.active {
 }
 
 .mat-column-birthDate {
-    width: 18%;
+    width: 15%;
+}
+
+.mat-column-enrolmentDate {
+    width: 15%;
 }
 
 .mat-column-deleteChild {
     width: 10%;
+}
+
+.filterKindergarden{
+    min-width: 30%;
 }

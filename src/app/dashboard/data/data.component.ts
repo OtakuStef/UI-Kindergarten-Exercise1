@@ -3,8 +3,7 @@ import { BackendService } from 'src/app/shared/backend.service';
 import { StoreService } from 'src/app/shared/store.service';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { ChildResponse } from 'src/app/shared/interfaces/Child';
-import { Kindergarden } from 'src/app/shared/interfaces/Kindergarden';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -17,35 +16,48 @@ export class DataComponent implements OnInit {
   constructor(public storeService: StoreService, private backendService: BackendService) {}
   public currentPage: number = 1;
   public page: number = 0;
+  private searchParam:string = "";
 
   //Empty Mock Data
   public mockArray: any[] = [
-    { name: '', kindergarden: '', address: '', age: '', birthDate: ''},
-    { name: '', kindergarden: '', address: '', age: '', birthDate: ''},
-    { name: '', kindergarden: '', address: '', age: '', birthDate: ''},
-    { name: '', kindergarden: '', address: '', age: '', birthDate: ''},
-    { name: '', kindergarden: '', address: '', age: '', birthDate: ''}
+    { name: '', kindergarden: '', address: '', age: '', birthDate: '', enrolmentDate: ''},
+    { name: '', kindergarden: '', address: '', age: '', birthDate: '', enrolmentDate: ''},
+    { name: '', kindergarden: '', address: '', age: '', birthDate: '', enrolmentDate: ''},
+    { name: '', kindergarden: '', address: '', age: '', birthDate: '', enrolmentDate: ''},
+    { name: '', kindergarden: '', address: '', age: '', birthDate: '', enrolmentDate: ''}
   ];
 
   //Table
   @ViewChild('childTable', {static: true}) table!: MatTable<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   public children : MatTableDataSource<any> = new MatTableDataSource(this.mockArray);
-  public displayedColumns: string[] = ['name', 'kindergarden', 'address', 'age', 'birthDate', 'deleteChild'];
+  public displayedColumns: string[] = ['name', 'kindergarden', 'address', 'age', 'birthDate', 'enrolmentDate', 'deleteChild'];
   public pageSize = 5;
   public length = 0;
   private startPage = 1;
 
   public showSpinner = true;
 
+  public sortAscIcon = "arrow_downward";
+  public sortDecIcon = "arrow_upward";
+  private initSortIcon = "swap_vert";
+
+  public iconSortNameAsc : boolean = true;
+  public iconSortKindergardenAsc : boolean = true;
+  public iconSortEnrolmentAsc : boolean = true;
 
   ngOnInit() {
-    this.getChildrenLength();
+    this.getChildrenLength("");
     this.loadInitialData(this.startPage);
   }
 
-  getChildrenLength(){
-    this.backendService.getAllChildren().subscribe((res:any) => {
+  startSpinner(){
+    this.children = new MatTableDataSource(this.mockArray);
+    this.showSpinner = true;
+  }
+
+  getChildrenLength(filter:string){
+    this.backendService.getAllChildren(filter).subscribe((res:any) => {
       this.length = res.length;
     }, (error) => {
       this.errorHandler(error);
@@ -53,7 +65,11 @@ export class DataComponent implements OnInit {
   }
 
   loadInitialData(pageIndex:number){
-    this.backendService.getChildrenByPageIndexPageSize(pageIndex, this.pageSize).subscribe((res:any)=>{
+    this.loadCustomData(pageIndex, "");
+  }
+
+  loadCustomData(pageIndex:number, sortParam:string){
+    this.backendService.getCustomChildren(pageIndex, this.pageSize, sortParam).subscribe((res:any)=>{
       this.children = new MatTableDataSource(res);
       this.showSpinner = false;
     }, (error) => {
@@ -62,9 +78,8 @@ export class DataComponent implements OnInit {
   }
 
   pageNavigate(page:PageEvent){
-    this.children = new MatTableDataSource(this.mockArray);
-    this.showSpinner = true;
-    this.loadInitialData(page.pageIndex + this.startPage);
+    this.startSpinner();
+    this.loadCustomData(page.pageIndex + this.startPage, this.searchParam);
     
   }
 
@@ -89,6 +104,56 @@ export class DataComponent implements OnInit {
 
   deleteChild(childId: string){
     this.backendService.deleteChildren(childId);
+  }
+
+  filterKindergarden(event:MatSelectChange) {
+    this.startSpinner();
+    this.resetSortIcons();
+    if(event.value=="non" || event.value==null){
+      this.searchParam="";
+      this.loadInitialData(this.startPage);
+    }else{
+      let filter:string = `&kindergardenId=${event.value}`;
+      this.searchParam = filter;
+      this.loadCustomData(this.startPage,filter);
+      this.getChildrenLength(filter);
+    }
+  }
+
+  sort(sortAttribute:string){
+    this.startSpinner();
+    let sortOrder = "asc";
+    if(this.changeIcon(sortAttribute)){
+      sortOrder = "desc";
+    }
+    let sortParam = `&_sort=${sortAttribute}&_order=${sortOrder}`;
+    this.searchParam += sortParam;
+    this.loadCustomData(this.startPage,sortParam);
+  }
+
+  changeIcon(sortAttribute:string):boolean{
+    switch (sortAttribute) {
+      case "name":
+        this.iconSortNameAsc = !this.iconSortNameAsc;
+        return this.iconSortNameAsc;
+
+      case "kindergarden.name":
+        this.iconSortKindergardenAsc = !this.iconSortKindergardenAsc;
+        return this.iconSortKindergardenAsc;
+    
+      case "enrolmentDate":
+        this.iconSortEnrolmentAsc = !this.iconSortEnrolmentAsc;
+        return this.iconSortEnrolmentAsc;
+
+      default:
+        return false;
+    }
+  }
+
+  resetSortIcons(){
+    this.iconSortNameAsc = true;
+    this.iconSortKindergardenAsc = true;
+    this.iconSortEnrolmentAsc = true;
   }
 
 }

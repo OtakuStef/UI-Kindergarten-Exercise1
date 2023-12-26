@@ -11,28 +11,33 @@ export class BackendService {
 
   constructor(private http: HttpClient, private storeService: StoreService) { }
 
+  private serverUrl:string = "http://localhost:5000";
+
   public getKindergardens() {
-    this.http.get<Kindergarden[]>('http://localhost:5000/kindergardens').subscribe(data => {
+    this.http.get<Kindergarden[]>(`${this.serverUrl}/kindergardens`).subscribe(data => {
       this.storeService.kindergardens = data;
     });
   }
 
-  public getAllChildren() {
-    return this.http.get(`http://localhost:5000/childs?_expand=kindergarden`);
+  public getAllChildren(filter:string) {
+    return this.http.get(`${this.serverUrl}/childs?_expand=kindergarden${filter}`);
   }
 
-  public getChildrenByPageIndexPageSize(pageIndex:number, pageSize:number) {
-    return this.http.get(`http://localhost:5000/childs?_expand=kindergarden&_page=${pageIndex}&_limit=${pageSize}`);
+  public getCustomChildren(pageIndex:number, pageSize:number, param:string){
+    return this.http.get(`${this.serverUrl}/childs?_expand=kindergarden&_page=${pageIndex}&_limit=${pageSize}${param}`);   
   }
 
   public async addChildData(child: Child) {
-    this.http.post('http://localhost:5000/childs', child).subscribe(_ => {
+    let date = new Date();
+    child.enrolmentDate = date.toISOString();
+    
+    this.http.post(`${this.serverUrl}/childs`, child).subscribe(_ => {
       console.log('Child added');
     })
   }
 
   public deleteChildren(childId : string) {
-    this.http.delete('http://localhost:5000/childs/' + childId).subscribe(_ => {
+    this.http.delete(`${this.serverUrl}/childs/` + childId).subscribe(_ => {
       location.reload()
     })
   }

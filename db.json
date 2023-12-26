@@ -4,151 +4,176 @@
       "id": "_iL775j",
       "name": "Nicole Fitsch 1",
       "birthDate": "2021-07-04",
-      "kindergardenId": 1
+      "kindergardenId": 1,
+      "enrolmentDate": "2024-01-01"
     },
     {
       "id": "_ij700m",
       "name": "Melanie Hollunder 2",
       "birthDate": "2020-07-04",
-      "kindergardenId": 3
+      "kindergardenId": 3,
+      "enrolmentDate": "2024-01-24"
     },
     {
       "id": "_iL77oo",
       "name": "Viktor Sachs 3",
       "birthDate": "2022-06-04",
-      "kindergardenId": 4
+      "kindergardenId": 4,
+      "enrolmentDate": "2024-10-08"
     },
     {
       "id": "_iL790m",
       "name": "Emily Nilson 4",
       "birthDate": "2019-01-04",
-      "kindergardenId": 2
+      "kindergardenId": 2,
+      "enrolmentDate": "2023-03-15"
     },
     {
       "id": "_iL790m",
       "name": "Tom Reiner 5",
       "birthDate": "2019-01-04",
-      "kindergardenId": 2
+      "kindergardenId": 2,
+      "enrolmentDate": "2023-08-28"
     },
     {
       "id": "_iL790m",
       "name": "Michael Mittner 6",
       "birthDate": "2019-01-04",
-      "kindergardenId": 2
+      "kindergardenId": 2,
+      "enrolmentDate": "2023-07-20"
     },
     {
       "id": "_iL790m",
       "name": "Nikolaus Polarius 7",
       "birthDate": "2019-01-04",
-      "kindergardenId": 2
+      "kindergardenId": 2,
+      "enrolmentDate": "2023-11-06"
     },
     {
       "name": "Paulus Fensterl 8",
       "kindergardenId": 2,
       "birthDate": "2023-09-28",
-      "id": "9py_fwi"
+      "id": "9py_fwi",
+      "enrolmentDate": "2024-02-03"
     },
     {
       "name": "Heidi aus den Bergen 9",
       "kindergardenId": 2,
       "birthDate": "2023-10-05",
-      "id": "hOHEFCv"
+      "id": "hOHEFCv",
+      "enrolmentDate": "2023-12-29"
     },
     {
       "name": "Traude Widmann 10",
       "kindergardenId": 2,
       "birthDate": "2023-10-05",
-      "id": "cu0_2Ad"
+      "id": "cu0_2Ad",
+      "enrolmentDate": "2024-05-14"
     },
     {
       "name": "Heiner Kühlschrank 11",
       "kindergardenId": 2,
       "birthDate": "2023-10-26",
-      "id": "ip57WMS"
+      "id": "ip57WMS",
+      "enrolmentDate": "2023-04-27"
     },
     {
       "name": "Nicole Witz 12",
       "kindergardenId": 3,
       "birthDate": "2023-10-13",
-      "id": "JmbNaBH"
+      "id": "JmbNaBH",
+      "enrolmentDate": "2024-06-19"
     },
     {
       "name": "Bastian Witsch 13",
       "kindergardenId": 3,
       "birthDate": "2023-10-13",
-      "id": "hlQAqAD"
+      "id": "hlQAqAD",
+      "enrolmentDate": "2023-09-22"
     },
     {
       "name": "Tobias Maier",
       "kindergardenId": 3,
       "birthDate": "2023-06-27",
-      "id": "_XOumOV"
+      "id": "_XOumOV",
+      "enrolmentDate": "2024-04-11"
     },
     {
       "name": "Test Max",
       "kindergardenId": 4,
       "birthDate": "2023-10-31T23:00:00.000Z",
-      "id": "KoChNgh"
+      "id": "KoChNgh",
+      "enrolmentDate": "2023-05-08"
     },
     {
       "name": "Test Max",
       "kindergardenId": 4,
       "birthDate": "2023-10-31T23:00:00.000Z",
-      "id": "wmWJ6v-"
+      "id": "wmWJ6v-",
+      "enrolmentDate": "2023-06-21"
     },
     {
       "name": "Stefan",
       "kindergardenId": 2,
       "birthDate": "2018-08-27T22:00:00.000Z",
-      "id": "wjHSecb"
+      "id": "wjHSecb",
+      "enrolmentDate": "2024-07-12"
     },
     {
       "name": "Test",
       "kindergardenId": 2,
       "birthDate": "2023-11-01T23:00:00.000Z",
-      "id": "p4UqotP"
+      "id": "p4UqotP",
+      "enrolmentDate": "2023-02-26"
     },
     {
       "name": "Test 2",
       "kindergardenId": 2,
       "birthDate": "2023-11-15T23:00:00.000Z",
-      "id": "IvJtCxV"
+      "id": "IvJtCxV",
+      "enrolmentDate": "2024-08-04"
     },
     {
       "name": "Stefan",
       "kindergardenId": 5,
       "birthDate": "2016-02-10T23:00:00.000Z",
-      "id": "F0qrVaj"
+      "id": "F0qrVaj",
+      "enrolmentDate": "2023-10-12"
     },
     {
       "name": "Stefan2",
       "kindergardenId": 1,
       "birthDate": "2023-11-12T23:00:00.000Z",
-      "id": "MCAoT4z"
-    },
-    {
-      "name": "test",
-      "kindergardenId": 2,
-      "birthDate": "2021-12-13T23:00:00.000Z",
-      "id": "CJjRs9y"
+      "id": "MCAoT4z",
+      "enrolmentDate": "2024-03-21"
     },
     {
       "name": "Stefan",
       "kindergardenId": 2,
       "birthDate": "2021-12-31T23:00:00.000Z",
-      "id": "NG9HYs7"
+      "id": "NG9HYs7",
+      "enrolmentDate": "2023-01-30"
     },
     {
       "name": "Test",
       "kindergardenId": 2,
       "birthDate": "2021-12-04T23:00:00.000Z",
-      "id": "xscN4AS"
+      "id": "xscN4AS",
+      "enrolmentDate": "2024-09-05"
     },
     {
       "name": "Stefan 2",
       "kindergardenId": 4,
       "birthDate": "2021-12-19T23:00:00.000Z",
-      "id": "ELl3aJK"
+      "id": "ELl3aJK",
+      "enrolmentDate": "2023-05-19"
+    },
+    {
+      "name": "Test",
+      "kindergardenId": 3,
+      "birthDate": "2021-12-07T23:00:00.000Z",
+      "enrolmentDate": "2023-12-26T17:29:09.424Z",
+      "id": "SuS6fG0"
     }
   ],
   "kindergardens": [
@@ -168,14 +193,14 @@
     },
     {
       "id": 3,
-      "name": "Kindergarden der Stadt Wien",
+      "name": "Kindergarden der Stadt Wien 1210",
       "address": "Audorfgasse 20, 1210 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
       "typ": 2
     },
     {
       "id": 4,
-      "name": "Kindergarden der Stadt Wien",
+      "name": "Kindergarden der Stadt Wien 1140",
       "address": "Moßbachergasse 20-24, 1140 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
       "typ": 2
