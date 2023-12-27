@@ -8,7 +8,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataComponent } from './dashboard/data/data.component';
 import { AddDataComponent } from './dashboard/add-data/add-data.component';
 import { HeaderComponent } from './header/header.component';
-import { PaginationPipe } from './dashboard/data/pagination.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -23,6 +22,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDividerModule} from '@angular/material/divider';
+import { KindergartenOverviewComponent } from './kindergarten-overview/kindergarten-overview.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -33,7 +34,7 @@ import {MatDividerModule} from '@angular/material/divider';
     AddDataComponent,
     DataComponent,
     HeaderComponent,
-    PaginationPipe
+    KindergartenOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatProgressSpinnerModule,
     MatIconModule,
     MatTooltipModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCardModule
   ],
   providers: [
   ],

@@ -40,7 +40,6 @@ export class DataComponent implements OnInit {
 
   public sortAscIcon = "arrow_downward";
   public sortDecIcon = "arrow_upward";
-  private initSortIcon = "swap_vert";
 
   public iconSortNameAsc : boolean = true;
   public iconSortKindergardenAsc : boolean = true;

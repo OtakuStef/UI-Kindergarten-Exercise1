@@ -4,6 +4,11 @@ export interface Kindergarden {
     address: string;
     betreiber: string;
     typ: Typ,
+    email : string,
+    telNr: string,
+    besuchsmodell:string[],
+    essen:number,
+    img:string
   }
 
   export enum Typ {
