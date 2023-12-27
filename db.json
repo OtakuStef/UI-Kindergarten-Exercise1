@@ -92,27 +92,6 @@
       "enrolmentDate": "2023-09-22"
     },
     {
-      "name": "Tobias Maier",
-      "kindergardenId": 3,
-      "birthDate": "2023-06-27",
-      "id": "_XOumOV",
-      "enrolmentDate": "2024-04-11"
-    },
-    {
-      "name": "Test Max",
-      "kindergardenId": 4,
-      "birthDate": "2023-10-31T23:00:00.000Z",
-      "id": "KoChNgh",
-      "enrolmentDate": "2023-05-08"
-    },
-    {
-      "name": "Test Max",
-      "kindergardenId": 4,
-      "birthDate": "2023-10-31T23:00:00.000Z",
-      "id": "wmWJ6v-",
-      "enrolmentDate": "2023-06-21"
-    },
-    {
       "name": "Stefan",
       "kindergardenId": 2,
       "birthDate": "2018-08-27T22:00:00.000Z",
@@ -141,13 +120,6 @@
       "enrolmentDate": "2023-10-12"
     },
     {
-      "name": "Stefan2",
-      "kindergardenId": 1,
-      "birthDate": "2023-11-12T23:00:00.000Z",
-      "id": "MCAoT4z",
-      "enrolmentDate": "2024-03-21"
-    },
-    {
       "name": "Stefan",
       "kindergardenId": 2,
       "birthDate": "2021-12-31T23:00:00.000Z",
@@ -174,6 +146,20 @@
       "birthDate": "2021-12-07T23:00:00.000Z",
       "enrolmentDate": "2023-12-26T17:29:09.424Z",
       "id": "SuS6fG0"
+    },
+    {
+      "name": "Test",
+      "kindergardenId": 4,
+      "birthDate": "2021-12-13T23:00:00.000Z",
+      "enrolmentDate": "2023-12-27T19:09:48.771Z",
+      "id": "j6vHxAH"
+    },
+    {
+      "name": "TEst",
+      "kindergardenId": 3,
+      "birthDate": "2021-12-31T23:00:00.000Z",
+      "enrolmentDate": "2023-12-27T20:01:53.661Z",
+      "id": "RXqNy7I"
     }
   ],
   "kindergardens": [
@@ -185,9 +171,13 @@
       "typ": 1,
       "email": "baumlover@kiwie.ac.at",
       "telNr": "+43 664 123 1220",
-      "besuchsmodell": ["Ganztags", "Teilzeit", "Halbtags"],
-      "essen" : 99.95,
-      "img" :"assets/images/kindergarten1.png"
+      "besuchsmodell": [
+        "Ganztags",
+        "Teilzeit",
+        "Halbtags"
+      ],
+      "essen": 99.95,
+      "img": "assets/images/kindergarten1.png"
     },
     {
       "id": 2,
@@ -197,9 +187,13 @@
       "typ": 1,
       "email": "office@karl-schubert.ac.at",
       "telNr": "+43 664 123 1230",
-      "besuchsmodell": ["Ganztags", "Teilzeit", "Halbtags"],
-      "essen" : 129.95,
-      "img" :"assets/images/kindergarten2.png"
+      "besuchsmodell": [
+        "Ganztags",
+        "Teilzeit",
+        "Halbtags"
+      ],
+      "essen": 129.95,
+      "img": "assets/images/kindergarten2.png"
     },
     {
       "id": 3,
@@ -209,9 +203,12 @@
       "typ": 2,
       "email": "office1210@kiwie.ac.at",
       "telNr": "+43 664 123 1210",
-      "besuchsmodell": ["Ganztags", "Halbtags"],
-      "essen" : 79.95,
-      "img" :"assets/images/kindergarten3.png"
+      "besuchsmodell": [
+        "Ganztags",
+        "Halbtags"
+      ],
+      "essen": 79.95,
+      "img": "assets/images/kindergarten3.png"
     },
     {
       "id": 4,
@@ -221,9 +218,12 @@
       "typ": 2,
       "email": "office1140@kiwie.ac.at",
       "telNr": "+43 664 123 1140",
-      "besuchsmodell": ["Ganztags", "Halbtags"],
-      "essen" : 79.95,
-      "img" :"assets/images/kindergarten4.png"
+      "besuchsmodell": [
+        "Ganztags",
+        "Halbtags"
+      ],
+      "essen": 79.95,
+      "img": "assets/images/kindergarten4.png"
     },
     {
       "id": 5,
@@ -233,9 +233,13 @@
       "typ": 1,
       "email": "office@montewien.ac.at",
       "telNr": "+43 664 123 1090",
-      "besuchsmodell": ["Ganztags", "Teilzeit", "Halbtags"],
-      "essen" : 109.95,
-      "img" :"assets/images/kindergarten5.png"
+      "besuchsmodell": [
+        "Ganztags",
+        "Teilzeit",
+        "Halbtags"
+      ],
+      "essen": 109.95,
+      "img": "assets/images/kindergarten5.png"
     }
   ]
 }

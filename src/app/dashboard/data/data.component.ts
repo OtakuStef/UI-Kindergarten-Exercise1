@@ -102,6 +102,7 @@ export class DataComponent implements OnInit {
   }
 
   deleteChild(childId: string){
+    this.startSpinner();
     this.backendService.deleteChildren(childId);
   }
 

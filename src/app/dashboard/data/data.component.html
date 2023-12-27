@@ -8,9 +8,9 @@
 
   <form class="filterSearch">
     <mat-form-field appearance="outline" class="filterKindergarden">
-      <mat-label>Filter Kindergarden</mat-label>
+      <mat-label>Filter Kindergärten</mat-label>
       <mat-select (selectionChange)="filterKindergarden($event)">
-        <mat-option value="non">All Kindergarden</mat-option>
+        <mat-option value="non">Alle Kindergärten</mat-option>
         <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
           {{kindergarden.name}}</mat-option>
       </mat-select>
@@ -31,7 +31,7 @@
   
     <ng-container matColumnDef="kindergarden">
       <th mat-header-cell *matHeaderCellDef> 
-        Kindergarden
+        Kindergarten
         <button id="sort_kindergarden" mat-icon-button color="primary" aria-label="Sort Kindergarden" (click)="sort('kindergarden.name')">
           <mat-icon class="sort_icon">{{iconSortKindergardenAsc ? sortAscIcon : sortDecIcon}}</mat-icon>
         </button>
@@ -67,7 +67,7 @@
     <ng-container matColumnDef="deleteChild">
       <th mat-header-cell *matHeaderCellDef> Abmelden </th>
       <td mat-cell *matCellDef="let child" class="text-center"> 
-        <button (click)="deleteChild(child.id)" mat-mini-fab matTooltip="Abmelden" color="primary" aria-label="Button zum Abmelden des Kindes">
+        <button (click)="deleteChild(child.id)" mat-mini-fab matTooltip="Abmelden" color="warn" aria-label="Button zum Abmelden des Kindes">
           <mat-icon>delete</mat-icon>
         </button> 
       </td>

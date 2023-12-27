@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { BackendService } from 'src/app/shared/backend.service';
 import { StoreService } from 'src/app/shared/store.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-data',
@@ -18,7 +19,8 @@ export class AddDataComponent implements OnInit{
     private formbuilder: FormBuilder, 
     public storeService: StoreService, 
     public backendService: BackendService, 
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 5, 0, 1);
@@ -43,6 +45,7 @@ export class AddDataComponent implements OnInit{
       const snackbarMessage : string = this.addChildForm.value.name + " erfolgreich angemeldet!"
       this.addChildForm.reset();
       this.snackBar.open(snackbarMessage, "Schließen");
+      this.router.navigate(["/dashboard"]);
     }
   }
 }
